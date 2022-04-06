@@ -1,0 +1,25 @@
+<h3>MRMS Hourly Zip Files</h3>
+
+<p>This service maintains about a 30 TB near-term archive of
+NCEP <a href="https://www.nssl.noaa.gov/projects/mrms/">MRMS</a> data.  Since
+local storage is limited, older content is offloaded to Iowa State's box.com
+presence called "CyBox".  Through some magic, redirection URIs are maintained
+here to allow scripted access against Cybox.</p>
+
+<p>Filename Convention: <code>YYYY/mm/dd/YYYYmmddHH24.zip</code>.  For example,
+    a filepath named <code>2022/01/01/2022010112.zip</code> would be the MRMS
+    content between 12 and 13 UTC on January 1, 2022.</p>
+
+<p>When browsing content on this server, you may see a zip file with only
+    about 70 byte size reported.  This file is a virtual file that is redirected
+    to CyBox on request.
+</p>
+
+<h4>Example wget command to download file.</h4>
+
+<pre>wget -L -o 2021060100.zip https://mrms.agron.iastate.edu/2021/06/01/2021060100.zip</pre>
+
+<p>The `-L` is important to handle the redirect and the `-o` is import to get the
+    downloaded filename right after getting redirected.</p>
+
+<p>Please contact daryl herzmann akrherz@iastate.edu with any questions.</p>
