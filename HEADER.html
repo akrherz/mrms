@@ -17,9 +17,30 @@ here to allow scripted access against Cybox.</p>
 
 <h4>Example wget command to download file.</h4>
 
-<pre>wget -L -o 2021060100.zip https://mrms.agron.iastate.edu/2021/06/01/2021060100.zip</pre>
+<pre>wget -L -O 2021060100.zip https://mrms.agron.iastate.edu/2021/06/01/2021060100.zip</pre>
 
-<p>The `-L` is important to handle the redirect and the `-o` is import to get the
+<p>The `-L` is important to handle the redirect and the `-O` is import to get the
     downloaded filename right after getting redirected.</p>
+
+<h4>Example python code to download two days worth of content.</h4>
+
+<pre>
+import datetime
+import subprocess
+
+# Get hourly files from June 1 and June 2 2021
+now = datetime.datetime(2021, 6, 1, 0)
+utc_end = datetime.datetime(2021, 6, 3, 0)
+
+while now < utc_end:
+    cmd = (
+        'wget -L -O ' + now.strftime('%Y%m%d%H') + '.zip ' +
+        'https://mrms.agron.iastate.edu/' + now.strftime('%Y/%m/%d/%Y%m%d%H') + '.zip'
+    )
+    print(cmd)
+    subprocess.run(cmd, shell=True)
+    now += datetime.timedelta(hours=1)
+
+</pre>
 
 <p>Please contact daryl herzmann akrherz@iastate.edu with any questions.</p>
