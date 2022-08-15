@@ -1,5 +1,8 @@
 <h3>MRMS Hourly Zip Files</h3>
 
+<p><strong>NEW!</strong> <a href="https://noaa-mrms-pds.s3.amazonaws.com/index.html">NOAA MRMS Amazon Archive</a>
+with data since 21 July 2022.</p>
+
 <p>This service maintains about a 30 TB near-term archive of
 NCEP <a href="https://www.nssl.noaa.gov/projects/mrms/">MRMS</a> data.  Since
 local storage is limited, older content is offloaded to Iowa State's box.com
@@ -42,5 +45,9 @@ while now < utc_end:
     now += datetime.timedelta(hours=1)
 
 </pre>
+
+<p>For reasons I am unsure of, you may need to invoke unzip like so:</p>
+
+<code>UNZIP_DISABLE_ZIPBOMB_DETECTION=TRUE unzip filename.zip</code>
 
 <p>Please contact daryl herzmann akrherz@iastate.edu with any questions.</p>
