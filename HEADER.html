@@ -46,8 +46,16 @@ while now < utc_end:
 
 </pre>
 
-<p>For reasons I am unsure of, you may need to invoke unzip like so:</p>
+<h3>Zip Bomb Protection</h3>
 
-<code>UNZIP_DISABLE_ZIPBOMB_DETECTION=TRUE unzip filename.zip</code>
+<p>For reasons I am unsure of, you may get errors unzipping the files. Here
+    are two known workarounds for this.
+</p>
+
+<p><code>UNZIP_DISABLE_ZIPBOMB_DETECTION=TRUE unzip filename.zip</code></p>
+
+<p>or</p>
+
+<p><code>zip -FF filename.zip --out newfilename.zip</code> and then extract the newly created zipfile.</p>
 
 <p>Please contact daryl herzmann akrherz@iastate.edu with any questions.</p>
