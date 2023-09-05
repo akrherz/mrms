@@ -5,8 +5,7 @@ RewriteEngine On
 <Directory "/mnt/mrms">
     # Need FollowSymLinks for mod_rewrite to work!
     Options Indexes FollowSymLinks
-    Order allow,deny
-    Allow from all
+    Require all granted
 
     RewriteRule ^(.*).zip$ /cgi-bin/cybox.py?fn=$1 [L]
 
