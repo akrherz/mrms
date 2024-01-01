@@ -35,7 +35,9 @@ def main():
 
     # Send the file to the client
     sys.stdout.buffer.write(b"Content-type: application/zip\n")
-    msg = f"Content-Disposition: attachment; filename={fn.split('/')[-1]}.zip\n"
+    msg = (
+        f"Content-Disposition: attachment; filename={fn.split('/')[-1]}.zip\n"
+    )
     sys.stdout.buffer.write(msg.encode("ascii"))
     msg = f"Content-Length: {size}\n\n"
     sys.stdout.buffer.write(msg.encode("ascii"))
