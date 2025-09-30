@@ -2,6 +2,8 @@
 DocumentRoot /mnt/mrms
 RewriteEngine On
 
+Redirect /data/ https://mrms.ncep.noaa.gov/
+
 <Directory "/mnt/mrms">
     # Need FollowSymLinks for mod_rewrite to work!
     Options Indexes FollowSymLinks
