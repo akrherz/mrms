@@ -1,7 +1,7 @@
 
 DocumentRoot /mnt/mrms
 RewriteEngine On
-    
+
 <Directory "/mnt/mrms">
     # Need FollowSymLinks for mod_rewrite to work!
     Options Indexes FollowSymLinks
@@ -10,6 +10,13 @@ RewriteEngine On
     RewriteRule ^(.*).zip$ /cgi-bin/cybox.py?fn=$1 [L]
 
 </Directory>
+
+<Directory "/mnt/mrms12">
+    # Need FollowSymLinks for mod_rewrite to work!
+    Options Indexes FollowSymLinks
+    Require all granted
+</Directory>
+
 
 Alias /cgi-bin/ "/opt/mrms/cgi-bin/"
 <Directory "/opt/mrms/cgi-bin">
