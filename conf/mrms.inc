@@ -1,22 +1,16 @@
 
-DocumentRoot /mnt/mrms
+DocumentRoot /mnt/mrms2
 RewriteEngine On
 
 Redirect /data/ https://mrms.ncep.noaa.gov/data/
 
-<Directory "/mnt/mrms">
+<Directory "/mnt/mrms2">
     # Need FollowSymLinks for mod_rewrite to work!
     Options Indexes FollowSymLinks
     Require all granted
 
     RewriteRule ^(.*).zip$ /cgi-bin/cybox.py?fn=$1 [L]
 
-</Directory>
-
-<Directory "/mnt/mrms12">
-    # Need FollowSymLinks for mod_rewrite to work!
-    Options Indexes FollowSymLinks
-    Require all granted
 </Directory>
 
 

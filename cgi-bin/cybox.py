@@ -20,7 +20,7 @@ def main():
         print("API Failure: Invalid filename")
         return
     # filename is safe to use
-    localfn = f"/mnt/mrms/{fn}.zip"
+    localfn = f"/mnt/mrms2/{fn}.zip"
     if not os.path.isfile(localfn):
         # Return a 404
         print("Status: 404 File Not Found\n")
