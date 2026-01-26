@@ -15,17 +15,9 @@ NCEP <a href="https://www.nssl.noaa.gov/projects/mrms/">MRMS</a> data.</p>
     a filepath named <code>2022/01/01/2022010112.zip</code> would be the MRMS
     content between 12 and 13 UTC on January 1, 2022.</p>
 
-<p>When browsing content on this server, you may see a zip file with only
-    about 70 byte size reported.  This file is a virtual file that is redirected
-    to CyBox on request.
-</p>
-
 <h4>Example wget command to download file.</h4>
 
-<pre>wget -L -O 2021060100.zip https://mrms.agron.iastate.edu/2021/06/01/2021060100.zip</pre>
-
-<p>The `-L` is important to handle the redirect and the `-O` is import to get the
-    downloaded filename right after getting redirected.</p>
+<pre>wget https://mrms.agron.iastate.edu/2021/06/01/2021060100.zip</pre>
 
 <h4>Example python code to download two days worth of content.</h4>
 
@@ -39,7 +31,7 @@ utc_end = datetime.datetime(2021, 6, 3, 0)
 
 while now < utc_end:
     cmd = (
-        'wget -L -O ' + now.strftime('%Y%m%d%H') + '.zip ' +
+        'wget ' +
         'https://mrms.agron.iastate.edu/' + now.strftime('%Y/%m/%d/%Y%m%d%H') + '.zip'
     )
     print(cmd)
